@@ -10,6 +10,7 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
+                // Premium Neutral Palette
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -55,6 +56,57 @@ const config: Config = {
             },
             maxWidth: {
                 content: "1100px",
+            },
+            // Premium Shadows
+            boxShadow: {
+                'soft': '0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)',
+                'medium': '0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06)',
+                'large': '0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
+                'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.1)',
+            },
+            // Custom Animations
+            keyframes: {
+                "fade-in": {
+                    "0%": { opacity: "0" },
+                    "100%": { opacity: "1" },
+                },
+                "fade-up": {
+                    "0%": { opacity: "0", transform: "translateY(20px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
+                "fade-down": {
+                    "0%": { opacity: "0", transform: "translateY(-20px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
+                "slide-in-left": {
+                    "0%": { opacity: "0", transform: "translateX(-20px)" },
+                    "100%": { opacity: "1", transform: "translateX(0)" },
+                },
+                "slide-in-right": {
+                    "0%": { opacity: "0", transform: "translateX(20px)" },
+                    "100%": { opacity: "1", transform: "translateX(0)" },
+                },
+                "scale-in": {
+                    "0%": { opacity: "0", transform: "scale(0.95)" },
+                    "100%": { opacity: "1", transform: "scale(1)" },
+                },
+                "float": {
+                    "0%, 100%": { transform: "translateY(0px)" },
+                    "50%": { transform: "translateY(-10px)" },
+                },
+            },
+            animation: {
+                "fade-in": "fade-in 0.5s ease-out",
+                "fade-up": "fade-up 0.5s ease-out",
+                "fade-down": "fade-down 0.5s ease-out",
+                "slide-in-left": "slide-in-left 0.5s ease-out",
+                "slide-in-right": "slide-in-right 0.5s ease-out",
+                "scale-in": "scale-in 0.3s ease-out",
+                "float": "float 3s ease-in-out infinite",
+            },
+            // Backdrop Blur for Glass Morphism
+            backdropBlur: {
+                xs: '2px',
             },
         },
     },
