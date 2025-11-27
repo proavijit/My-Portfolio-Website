@@ -1,65 +1,109 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { ProjectCard } from "@/components/ProjectCard"
+import { getFeaturedProjects, getAllSkills } from "@/lib/data"
+import { ArrowRight, Download, Mail } from "lucide-react"
 
 export default function Home() {
+  const featuredProjects = getFeaturedProjects()
+  const skills = getAllSkills()
+  const topSkills = skills.filter((s) => s.proficiency >= 4).slice(0, 8)
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
+        <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              Hi, I'm{" "}
+              <span className="text-accent">Avijit Ghosh</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+              A Full Stack JavaScript Developer building production-grade web
+              apps using React, Next.js, Node.js, and MongoDB. I design
+              reliable APIs and beautiful frontends.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/contact">
+                <Button size="lg" className="gap-2">
+                  <Mail className="h-5 w-5" />
+                  Get in Touch
+                </Button>
+              </Link>
+              <Link href="/resume">
+                <Button size="lg" variant="outline" className="gap-2">
+                  <Download className="h-5 w-5" />
+                  View Resume
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Tech Stack Strip */}
+      <section className="py-8 border-y bg-muted/30">
+        <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {topSkills.map((skill) => (
+              <Badge key={skill.name} variant="secondary" className="text-sm">
+                {skill.name}
+              </Badge>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="py-20">
+        <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                Featured Projects
+              </h2>
+              <p className="text-muted-foreground">
+                Showcasing my best work and case studies
+              </p>
+            </div>
+            <Link href="/projects">
+              <Button variant="ghost" className="gap-2">
+                View All
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Let's Build Something Together
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              I'm available for freelance projects and full-time opportunities.
+              Looking to build something amazing? Let's talk.
+            </p>
+            <Link href="/contact">
+              <Button size="lg" className="gap-2">
+                Start a Conversation
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
