@@ -19,7 +19,7 @@ export interface Project {
 
 export interface Skill {
     name: string;
-    category: 'Frontend' | 'Backend' | 'DevOps' | 'Tools';
+    category: 'Frontend Development' | 'Backend Development' | 'Databases' | 'Microservices & Architecture' | 'DevOps & Tools' | 'Soft Skills';
     proficiency: 1 | 2 | 3 | 4 | 5;
     icon?: string;
 }
@@ -32,6 +32,16 @@ export interface Experience {
     endDate?: string;
     description: string[];
     current?: boolean;
+}
+
+export interface Education {
+    degree: string;
+    institution: string;
+    location: string;
+    major?: string;
+    startDate?: string;
+    endDate?: string;
+    description?: string;
 }
 
 export interface Service {

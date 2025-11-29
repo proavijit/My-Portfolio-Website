@@ -1,4 +1,4 @@
-import { Project, Skill, Experience, Service } from "@/types"
+import { Project, Skill, Experience, Education, Service } from "@/types"
 
 export const projects: Project[] = [
     {
@@ -49,33 +49,71 @@ export const projects: Project[] = [
 ]
 
 export const skills: Skill[] = [
-    // Frontend
-    { name: "React", category: "Frontend", proficiency: 5 },
-    { name: "Next.js", category: "Frontend", proficiency: 5 },
-    { name: "TypeScript", category: "Frontend", proficiency: 4 },
-    { name: "JavaScript (ES6+)", category: "Frontend", proficiency: 5 },
-    { name: "Tailwind CSS", category: "Frontend", proficiency: 5 },
-    { name: "HTML5 & CSS3", category: "Frontend", proficiency: 5 },
+    // Frontend Development
+    { name: "React.js", category: "Frontend Development", proficiency: 5 },
+    { name: "Next.js (App Router)", category: "Frontend Development", proficiency: 5 },
+    { name: "Context API", category: "Frontend Development", proficiency: 5 },
+    { name: "Redux Toolkit", category: "Frontend Development", proficiency: 4 },
+    { name: "SSG, SSR, ISR", category: "Frontend Development", proficiency: 5 },
+    { name: "Tailwind CSS", category: "Frontend Development", proficiency: 5 },
+    { name: "Chakra UI", category: "Frontend Development", proficiency: 4 },
+    { name: "Shadcn UI", category: "Frontend Development", proficiency: 5 },
+    { name: "Bootstrap", category: "Frontend Development", proficiency: 4 },
+    { name: "React Hook Form", category: "Frontend Development", proficiency: 5 },
+    { name: "Formik", category: "Frontend Development", proficiency: 4 },
+    { name: "TanStack Query", category: "Frontend Development", proficiency: 5 },
+    { name: "Responsive UI", category: "Frontend Development", proficiency: 5 },
+    { name: "Component Architecture", category: "Frontend Development", proficiency: 5 },
 
-    // Backend
-    { name: "Node.js", category: "Backend", proficiency: 5 },
-    { name: "Express.js", category: "Backend", proficiency: 5 },
-    { name: "MongoDB", category: "Backend", proficiency: 4 },
-    { name: "PostgreSQL", category: "Backend", proficiency: 3 },
-    { name: "REST APIs", category: "Backend", proficiency: 5 },
-    { name: "GraphQL", category: "Backend", proficiency: 3 },
+    // Backend Development
+    { name: "Node.js", category: "Backend Development", proficiency: 5 },
+    { name: "Express.js", category: "Backend Development", proficiency: 5 },
+    { name: "Fastify", category: "Backend Development", proficiency: 3 },
+    { name: "JWT Authentication", category: "Backend Development", proficiency: 5 },
+    { name: "OAuth", category: "Backend Development", proficiency: 4 },
+    { name: "RBAC/ABAC", category: "Backend Development", proficiency: 4 },
+    { name: "Bcrypt", category: "Backend Development", proficiency: 5 },
+    { name: "Helmet", category: "Backend Development", proficiency: 5 },
+    { name: "CORS", category: "Backend Development", proficiency: 5 },
+    { name: "Rate Limiting", category: "Backend Development", proficiency: 5 },
 
-    // DevOps
-    { name: "Git & GitHub", category: "DevOps", proficiency: 5 },
-    { name: "Docker", category: "DevOps", proficiency: 3 },
-    { name: "Vercel", category: "DevOps", proficiency: 5 },
-    { name: "AWS (EC2, S3)", category: "DevOps", proficiency: 3 },
+    // Databases
+    { name: "MongoDB", category: "Databases", proficiency: 5 },
+    { name: "Mongoose", category: "Databases", proficiency: 5 },
+    { name: "Prisma ORM", category: "Databases", proficiency: 4 },
+    { name: "MySQL", category: "Databases", proficiency: 4 },
+    { name: "PostgreSQL", category: "Databases", proficiency: 4 },
+    { name: "Firebase Realtime Database", category: "Databases", proficiency: 4 },
 
-    // Tools
-    { name: "VS Code", category: "Tools", proficiency: 5 },
-    { name: "Figma", category: "Tools", proficiency: 4 },
-    { name: "Postman", category: "Tools", proficiency: 5 },
-    { name: "Jira", category: "Tools", proficiency: 4 },
+    // Microservices & Architecture
+    { name: "REST API Design", category: "Microservices & Architecture", proficiency: 5 },
+    { name: "API Versioning", category: "Microservices & Architecture", proficiency: 5 },
+    { name: "RabbitMQ", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Docker", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "Docker Compose", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "Redis", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "API Gateway", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Load Balancing", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "CQRS", category: "Microservices & Architecture", proficiency: 3 },
+
+    // DevOps & Tools
+    { name: "Git", category: "DevOps & Tools", proficiency: 5 },
+    { name: "GitHub", category: "DevOps & Tools", proficiency: 5 },
+    { name: "GitHub Actions", category: "DevOps & Tools", proficiency: 4 },
+    { name: "Postman", category: "DevOps & Tools", proficiency: 5 },
+    { name: "VS Code", category: "DevOps & Tools", proficiency: 5 },
+    { name: "Cursor", category: "DevOps & Tools", proficiency: 5 },
+    { name: "ESLint & Prettier", category: "DevOps & Tools", proficiency: 5 },
+    { name: "Chrome DevTools", category: "DevOps & Tools", proficiency: 5 },
+    { name: "Figma", category: "DevOps & Tools", proficiency: 4 },
+    { name: "Adobe Photoshop", category: "DevOps & Tools", proficiency: 4 },
+    { name: "Adobe Illustrator", category: "DevOps & Tools", proficiency: 4 },
+
+    // Soft Skills
+    { name: "Communication", category: "Soft Skills", proficiency: 5 },
+    { name: "Teamwork", category: "Soft Skills", proficiency: 5 },
+    { name: "Fast Learning", category: "Soft Skills", proficiency: 5 },
+    { name: "Adaptability", category: "Soft Skills", proficiency: 5 },
 ]
 
 export const experiences: Experience[] = [
@@ -93,16 +131,17 @@ export const experiences: Experience[] = [
         ],
     },
     {
-        title: "WordPress Developer (Fiverr Level 2)",
-        company: "Fiverr",
+        title: "WordPress Developer – CMS Customization",
+        company: "Freelancer, Remote (Level 2 Seller on Fiverr)",
         location: "Remote",
         startDate: "2020-06",
         endDate: "2022-12",
         description: [
-            "Completed 60+ WordPress projects with 5-star ratings",
-            "Customized themes and plugins for client-specific requirements",
-            "Achieved Level 2 seller status within 18 months",
-            "Maintained 98% client satisfaction rate",
+            "Designed & customized WordPress websites using Elementor, WP Bakery, and custom themes",
+            "Delivered 60+ client projects with 5-star ratings",
+            "Built landing pages, blogs, business sites, WooCommerce & optimized speed/SEO",
+            "Created graphic design assets using Photoshop and Illustrator",
+            "Worked directly with international clients and managed the full project lifecycle",
         ],
     },
 ]
@@ -162,6 +201,15 @@ export const services: Service[] = [
     },
 ]
 
+export const education: Education[] = [
+    {
+        degree: "Bachelor of Business Administration (BBA)",
+        institution: "National University",
+        location: "Bangladesh",
+        major: "Marketing",
+    },
+]
+
 export function getAllProjects(): Project[] {
     return projects
 }
@@ -188,6 +236,10 @@ export function getAllSkills(): Skill[] {
 
 export function getExperiences(): Experience[] {
     return experiences
+}
+
+export function getEducation(): Education[] {
+    return education
 }
 
 export function getServices(): Service[] {

@@ -3,9 +3,10 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
 import { ProjectCard } from "@/components/ProjectCard"
 import { getFeaturedProjects, getAllSkills } from "@/lib/data"
-import { ArrowRight, Download, Mail } from "lucide-react"
+import { ArrowRight, Download, Mail, Code2, Briefcase, Users, Award } from "lucide-react"
 import { motion } from "framer-motion"
 import { FadeIn } from "@/components/animations/FadeIn"
 import { SlideIn } from "@/components/animations/SlideIn"
@@ -15,16 +16,44 @@ import { StaggerItem } from "@/components/animations/StaggerItem"
 export default function Home() {
   const featuredProjects = getFeaturedProjects()
   const skills = getAllSkills()
-  const topSkills = skills.filter((s) => s.proficiency >= 4).slice(0, 8)
+  const topSkills = skills.filter((s) => s.proficiency >= 4).slice(0, 12)
+
+  const stats = [
+    { label: "Years Experience", value: "2+", icon: Briefcase },
+    { label: "Projects Completed", value: "60+", icon: Code2 },
+    { label: "Technologies", value: "54+", icon: Award },
+    { label: "Client Satisfaction", value: "98%", icon: Users },
+  ]
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
+      {/* Hero Section with Professional Pattern */}
       <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden">
-        {/* Geometric Background Elements */}
+        {/* Professional Grid Pattern Background */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          {/* Dot Matrix Pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.15]"
+            style={{
+              backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,
+              backgroundSize: '24px 24px',
+            }}
+          />
+
+          {/* Grid Pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`,
+              backgroundSize: '48px 48px',
+            }}
+          />
+
+          {/* Animated Gradient Mesh */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-accent/10 via-primary/5 to-transparent rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/10 via-accent/5 to-transparent rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: '10s', animationDelay: '2s' }} />
         </div>
 
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
@@ -35,9 +64,22 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
+                {/* Role Badges */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">
+                    Full Stack Developer
+                  </Badge>
+                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">
+                    MERN Stack
+                  </Badge>
+                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">
+                    Microservices
+                  </Badge>
+                </div>
+
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
                   Hi, I'm{" "}
-                  <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
                     Avijit Ghosh
                   </span>
                 </h1>
@@ -45,10 +87,11 @@ export default function Home() {
             </SlideIn>
 
             <FadeIn delay={0.2}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-3xl">
-                A Full Stack JavaScript Developer building production-grade web
-                apps using React, Next.js, Node.js, and MongoDB. I design
-                reliable APIs and beautiful frontends.
+              <p className="text-xl md:text-2xl text-muted-foreground mb-4 leading-relaxed max-w-3xl">
+                Full Stack JavaScript Developer building <strong>production-grade web applications</strong> with React, Next.js, Node.js, and MongoDB.
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-3xl">
+                Specialized in scalable architectures, REST APIs, authentication systems, and microservice-ready backends. Currently mastering <strong>Data Structures & Algorithms</strong> and exploring cloud technologies.
               </p>
             </FadeIn>
 
@@ -70,16 +113,60 @@ export default function Home() {
                     </Button>
                   </motion.div>
                 </Link>
+                <Link href="/projects">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button size="lg" variant="ghost" className="gap-2">
+                      View Projects
+                      <ArrowRight className="h-5 w-5" />
+                    </Button>
+                  </motion.div>
+                </Link>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Tech Stack Strip */}
-      <section className="py-12 border-y bg-muted/30">
+      {/* Stats Section */}
+      <section className="py-16 border-y bg-muted/30">
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
-          <StaggerContainer className="flex flex-wrap gap-3 justify-center">
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <StaggerItem key={stat.label}>
+                <motion.div whileHover={{ y: -4 }}>
+                  <Card className="glass-card border-border/50 text-center">
+                    <CardContent className="pt-6 pb-6">
+                      <div className="flex justify-center mb-3">
+                        <div className="p-3 rounded-lg bg-gradient-to-br from-muted/50 to-muted/30">
+                          <stat.icon className="h-6 w-6" />
+                        </div>
+                      </div>
+                      <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
+                      <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
+                Tech Stack
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Technologies I work with daily
+              </p>
+            </div>
+          </FadeIn>
+
+          <StaggerContainer className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
             {topSkills.map((skill) => (
               <StaggerItem key={skill.name}>
                 <motion.div whileHover={{ scale: 1.05, y: -2 }}>
@@ -90,11 +177,22 @@ export default function Home() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+
+          <FadeIn delay={0.3}>
+            <div className="text-center mt-8">
+              <Link href="/skills">
+                <Button variant="ghost" className="gap-2">
+                  View All Skills
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section className="py-24">
+      <section className="py-24 bg-muted/20">
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-16">
             <FadeIn>
@@ -126,34 +224,70 @@ export default function Home() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+
+          <FadeIn delay={0.4}>
+            <div className="text-center mt-12 sm:hidden">
+              <Link href="/projects">
+                <Button variant="outline" className="gap-2">
+                  View All Projects
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-background -z-10" />
+
+        {/* Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.02] -z-10"
+          style={{
+            backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,
+            backgroundSize: '20px 20px',
+          }}
+        />
+
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                Let's Build Something Together
-              </h2>
-              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-                I'm available for freelance projects and full-time opportunities.
-                Looking to build something amazing? Let's talk.
-              </p>
-              <Link href="/contact">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button size="lg" className="gap-2 shadow-medium hover:shadow-large transition-all">
-                    Start a Conversation
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </motion.div>
-              </Link>
-            </div>
+            <Card className="glass-card border-border/50 max-w-4xl mx-auto">
+              <CardContent className="pt-12 pb-12 text-center">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                  Let's Build Something Amazing
+                </h2>
+                <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
+                  I'm available for freelance projects and full-time opportunities.
+                  Whether you need a full-stack application, REST API, or microservice architecture,
+                  let's discuss how I can help bring your ideas to life.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <Link href="/contact">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Button size="lg" className="gap-2 shadow-medium hover:shadow-large transition-all">
+                        Start a Conversation
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    </motion.div>
+                  </Link>
+                  <Link href="/services">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Button size="lg" variant="outline" className="gap-2">
+                        View Services
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </FadeIn>
         </div>
       </section>
