@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+const config = {
     darkMode: "class",
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -58,8 +56,6 @@ const config: Config = {
                 "scale-in": "scale-in 0.3s ease-out",
                 float: "float 3s ease-in-out infinite",
                 "text-gradient": "text-gradient 5s ease infinite",
-
-
             },
             backdropBlur: { xs: "2px" },
         },
