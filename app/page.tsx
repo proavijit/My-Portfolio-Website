@@ -27,63 +27,66 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section with Professional Pattern */}
+      {/* Hero Section */}
       <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden">
-        {/* Professional Grid Pattern Background */}
-        <div className="absolute inset-0 -z-10">
-          {/* Dot Matrix Pattern */}
-          <div
+        {/* Background Patterns */}
+        <motion.div className="absolute inset-0 -z-10">
+          {/* Dot Matrix */}
+          <motion.div
             className="absolute inset-0 opacity-[0.15]"
             style={{
               backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,
               backgroundSize: '24px 24px',
             }}
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
           />
-
           {/* Grid Pattern */}
-          <div
+          <motion.div
             className="absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`,
               backgroundSize: '48px 48px',
             }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
           />
-
-          {/* Animated Gradient Mesh */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-accent/10 via-primary/5 to-transparent rounded-full blur-3xl animate-pulse"
-            style={{ animationDuration: '8s' }} />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/10 via-accent/5 to-transparent rounded-full blur-3xl animate-pulse"
-            style={{ animationDuration: '10s', animationDelay: '2s' }} />
-        </div>
+          {/* Gradient Mesh */}
+          <motion.div
+            className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-accent/10 via-primary/5 to-transparent rounded-full blur-3xl"
+            animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/10 via-accent/5 to-transparent rounded-full blur-3xl"
+            animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          />
+        </motion.div>
 
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
+            {/* SlideIn with Role Badges */}
             <SlideIn direction="left">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                {/* Role Badges */}
+              <div className="flex flex-col">
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">
-                    Full Stack Developer
-                  </Badge>
-                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">
-                    MERN Stack
-                  </Badge>
-                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">
-                    Microservices
-                  </Badge>
+                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">Full Stack Developer</Badge>
+                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">MERN Stack</Badge>
+                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">Microservices</Badge>
                 </div>
-
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                  Hi, I'm{" "}
-                  <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
+                  Hi, I'm{' '}
+                  <span
+                    className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 bg-clip-text text-transparent animate-text-gradient"
+                    style={{ backgroundSize: '200% 200%' }}
+                  >
                     Avijit Ghosh
                   </span>
+
                 </h1>
-              </motion.div>
+
+
+              </div>
             </SlideIn>
 
             <FadeIn delay={0.2}>
@@ -131,7 +134,7 @@ export default function Home() {
       <section className="py-16 border-y bg-muted/30">
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <StaggerItem key={stat.label}>
                 <motion.div whileHover={{ y: -4 }}>
                   <Card className="glass-card border-border/50 text-center">
@@ -157,12 +160,8 @@ export default function Home() {
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
-                Tech Stack
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Technologies I work with daily
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight">Tech Stack</h2>
+              <p className="text-muted-foreground text-lg">Technologies I work with daily</p>
             </div>
           </FadeIn>
 
@@ -170,9 +169,7 @@ export default function Home() {
             {topSkills.map((skill) => (
               <StaggerItem key={skill.name}>
                 <motion.div whileHover={{ scale: 1.05, y: -2 }}>
-                  <Badge variant="secondary" className="text-sm px-4 py-2 shadow-soft">
-                    {skill.name}
-                  </Badge>
+                  <Badge variant="secondary" className="text-sm px-4 py-2 shadow-soft">{skill.name}</Badge>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -197,12 +194,8 @@ export default function Home() {
           <div className="flex items-center justify-between mb-16">
             <FadeIn>
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">
-                  Featured Projects
-                </h2>
-                <p className="text-muted-foreground text-lg">
-                  Showcasing my best work and case studies
-                </p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Featured Projects</h2>
+                <p className="text-muted-foreground text-lg">Showcasing my best work and case studies</p>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -241,8 +234,6 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-background -z-10" />
-
-        {/* Pattern Overlay */}
         <div
           className="absolute inset-0 opacity-[0.02] -z-10"
           style={{
@@ -255,9 +246,7 @@ export default function Home() {
           <FadeIn>
             <Card className="glass-card border-border/50 max-w-4xl mx-auto">
               <CardContent className="pt-12 pb-12 text-center">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                  Let's Build Something Amazing
-                </h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Let's Build Something Amazing</h2>
                 <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
                   I'm available for freelance projects and full-time opportunities.
                   Whether you need a full-stack application, REST API, or microservice architecture,
@@ -265,10 +254,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Link href="/contact">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button size="lg" className="gap-2 shadow-medium hover:shadow-large transition-all">
                         Start a Conversation
                         <ArrowRight className="h-4 w-4" />
@@ -276,13 +262,8 @@ export default function Home() {
                     </motion.div>
                   </Link>
                   <Link href="/services">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button size="lg" variant="outline" className="gap-2">
-                        View Services
-                      </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button size="lg" variant="outline" className="gap-2">View Services</Button>
                     </motion.div>
                   </Link>
                 </div>
