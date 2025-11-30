@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -12,6 +13,7 @@ import { FadeIn } from "@/components/animations/FadeIn"
 import { SlideIn } from "@/components/animations/SlideIn"
 import { StaggerContainer } from "@/components/animations/StaggerContainer"
 import { StaggerItem } from "@/components/animations/StaggerItem"
+import my_image from "@/public/my_pic.png"
 
 export default function Home() {
   const featuredProjects = getFeaturedProjects()
@@ -28,6 +30,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
+
       <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden">
         {/* Background Patterns */}
         <motion.div className="absolute inset-0 -z-10">
@@ -65,67 +68,97 @@ export default function Home() {
         </motion.div>
 
         <div className="container mx-auto max-w-content px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            {/* SlideIn with Role Badges */}
-            <SlideIn direction="left">
-              <div className="flex flex-col">
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">Full Stack Developer</Badge>
-                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">MERN Stack</Badge>
-                  <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">Microservices</Badge>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-4xl">
+              {/* SlideIn with Role Badges */}
+              <SlideIn direction="left">
+                <div className="flex flex-col">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">Full Stack Developer</Badge>
+                    <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">MERN Stack</Badge>
+                    <Badge variant="secondary" className="px-3 py-1 text-xs font-medium">Microservices</Badge>
+                  </div>
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                    Hi, I'm{' '}
+                    <span
+                      className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 bg-clip-text text-transparent animate-text-gradient"
+                      style={{ backgroundSize: '200% 200%' }}
+                    >
+                      Avijit Ghosh
+                    </span>
+
+                  </h1>
+
+
                 </div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                  Hi, I'm{' '}
-                  <span
-                    className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 bg-clip-text text-transparent animate-text-gradient"
-                    style={{ backgroundSize: '200% 200%' }}
-                  >
-                    Avijit Ghosh
-                  </span>
+              </SlideIn>
 
-                </h1>
+              <FadeIn delay={0.2}>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-4 leading-relaxed max-w-3xl">
+                  Full Stack JavaScript Developer building <strong>production-grade web applications</strong> with React, Next.js, Node.js, and MongoDB.
+                </p>
+                <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-3xl">
+                  Specialized in scalable architectures, REST APIs, authentication systems, and microservice-ready backends. Currently mastering <strong>Data Structures & Algorithms</strong> and exploring cloud technologies.
+                </p>
+              </FadeIn>
 
+              <FadeIn delay={0.4}>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/contact">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button size="lg" className="gap-2 shadow-soft hover:shadow-medium transition-all">
+                        <Mail className="h-5 w-5" />
+                        Get in Touch
+                      </Button>
+                    </motion.div>
+                  </Link>
+                  <Link href="/resume">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button size="lg" variant="outline" className="gap-2 hover:shadow-soft transition-all">
+                        <Download className="h-5 w-5" />
+                        View Resume
+                      </Button>
+                    </motion.div>
+                  </Link>
+                  <Link href="/projects">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button size="lg" variant="ghost" className="gap-2">
+                        View Projects
+                        <ArrowRight className="h-5 w-5" />
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </div>
+              </FadeIn>
+            </div>
 
+            {/* Hero Image */}
+            <SlideIn delay={0.3} direction="right">
+              <div className="relative w-full max-w-md mx-auto lg:max-w-full aspect-square lg:aspect-auto lg:h-[600px] flex items-center justify-center">
+                <motion.div
+                  className="relative w-full h-full flex items-center justify-center z-10"
+                  animate={{ y: [0, -20, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Image
+                    src={my_image}
+                    alt="Avijit Ghosh"
+                    fill
+                    className="object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </motion.div>
+                {/* Decorative elements behind image */}
+                <motion.div
+                  className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] radial-gradient-glow rounded-full blur-[100px]"
+                  style={{
+                    background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 20%, transparent 70%)"
+                  }}
+                  animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.5, 0.8, 0.5] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
               </div>
             </SlideIn>
-
-            <FadeIn delay={0.2}>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-4 leading-relaxed max-w-3xl">
-                Full Stack JavaScript Developer building <strong>production-grade web applications</strong> with React, Next.js, Node.js, and MongoDB.
-              </p>
-              <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-3xl">
-                Specialized in scalable architectures, REST APIs, authentication systems, and microservice-ready backends. Currently mastering <strong>Data Structures & Algorithms</strong> and exploring cloud technologies.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.4}>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/contact">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" className="gap-2 shadow-soft hover:shadow-medium transition-all">
-                      <Mail className="h-5 w-5" />
-                      Get in Touch
-                    </Button>
-                  </motion.div>
-                </Link>
-                <Link href="/resume">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" variant="outline" className="gap-2 hover:shadow-soft transition-all">
-                      <Download className="h-5 w-5" />
-                      View Resume
-                    </Button>
-                  </motion.div>
-                </Link>
-                <Link href="/projects">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" variant="ghost" className="gap-2">
-                      View Projects
-                      <ArrowRight className="h-5 w-5" />
-                    </Button>
-                  </motion.div>
-                </Link>
-              </div>
-            </FadeIn>
           </div>
         </div>
       </section>
