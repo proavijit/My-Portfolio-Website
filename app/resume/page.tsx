@@ -103,12 +103,12 @@ export default function ResumePage() {
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-3">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <a href="/resume.pdf" download>
-                                    <Button className="gap-2 w-full sm:w-auto">
-                                        <Download className="h-4 w-4" />
+                                <Link href="https://docs.google.com/document/d/1M-na8wu6_OLrTO6wMLOYwKas0pxXE5LE6wNeKeiqLpE/edit?usp=sharing" download>
+                                    <Button className="gap-2 w-full sm:w-auto cursor-pointer ">
+                                        {/* <Download className="h-4 w-4" /> */}
                                         Download PDF
                                     </Button>
-                                </a>
+                                </Link>
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link href="/contact">
