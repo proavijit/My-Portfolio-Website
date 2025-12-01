@@ -1,31 +1,57 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted] = React.useState(false)
+    const { theme, setTheme, systemTheme } = useTheme();
+    const [mounted, setMounted] = React.useState(false);
 
-    React.useEffect(() => {
-        setMounted(true)
-    }, [])
+    React.useEffect(() => setMounted(true), []);
+    if (!mounted) return null;
 
-    if (!mounted) {
-        return null
-    }
+    const currentTheme = theme === "system" ? systemTheme : theme;
 
     return (
         <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             aria-label="Toggle theme"
+            onClick={() => setTheme(currentTheme === "light" ? "dark" : "light")}
+            className="
+        relative
+        transition-all duration-300
+        hover:scale-110
+        hover:bg-accent/60
+        dark:hover:bg-accent/20
+        rounded-xl
+      "
         >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            {/* Sun Icon */}
+            <Sun
+                className={`
+          absolute h-5 w-5
+          transition-all duration-500
+          text-yellow-500 
+          ${currentTheme === "light"
+                        ? "opacity-100 rotate-0 scale-100"
+                        : "opacity-0 -rotate-90 scale-0"}
+        `}
+            />
+
+            {/* Moon Icon */}
+            <Moon
+                className={`
+          absolute h-5 w-5
+          transition-all duration-500
+          text-blue-200 
+          ${currentTheme === "dark"
+                        ? "opacity-100 rotate-0 scale-100"
+                        : "opacity-0 rotate-90 scale-0"}
+        `}
+            />
         </Button>
-    )
+    );
 }
