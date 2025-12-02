@@ -50,32 +50,86 @@ export const projects: Project[] = [
 
 export const skills: Skill[] = [
     // Frontend Development
+    // { name: "React.js", category: "Frontend Development", proficiency: 5 },
+    // { name: "Next.js (App Router)", category: "Frontend Development", proficiency: 5 },
+    // { name: "Context API", category: "Frontend Development", proficiency: 5 },
+    // { name: "Redux Toolkit", category: "Frontend Development", proficiency: 4 },
+    // { name: "SSG, SSR, ISR", category: "Frontend Development", proficiency: 5 },
+    // { name: "Tailwind CSS", category: "Frontend Development", proficiency: 5 },
+    // { name: "Chakra UI", category: "Frontend Development", proficiency: 4 },
+    // { name: "Material UI", category: "Frontend Development", proficiency: 2 },
+    // { name: "Shadcn UI", category: "Frontend Development", proficiency: 5 },
+    // { name: "Bootstrap", category: "Frontend Development", proficiency: 4 },
+    // { name: "React Hook Form", category: "Frontend Development", proficiency: 5 },
+    // { name: "Formik", category: "Frontend Development", proficiency: 4 },
+    // { name: "TanStack Query", category: "Frontend Development", proficiency: 5 },
+    // { name: "Responsive UI", category: "Frontend Development", proficiency: 5 },
+    // { name: "Component Architecture", category: "Frontend Development", proficiency: 5 },
+    // { name: "Component Architecture", category: "Frontend Development", proficiency: 5 },
+
+
+
+    { name: "JavaScript (ES6+)", category: "Frontend Development", proficiency: 5 },
+    { name: "TypeScript", category: "Frontend Development", proficiency: 4 },
     { name: "React.js", category: "Frontend Development", proficiency: 5 },
-    { name: "Next.js (App Router)", category: "Frontend Development", proficiency: 5 },
-    { name: "Context API", category: "Frontend Development", proficiency: 5 },
-    { name: "Redux Toolkit", category: "Frontend Development", proficiency: 4 },
-    { name: "SSG, SSR, ISR", category: "Frontend Development", proficiency: 5 },
-    { name: "Tailwind CSS", category: "Frontend Development", proficiency: 5 },
-    { name: "Chakra UI", category: "Frontend Development", proficiency: 4 },
-    { name: "Shadcn UI", category: "Frontend Development", proficiency: 5 },
-    { name: "Bootstrap", category: "Frontend Development", proficiency: 4 },
-    { name: "React Hook Form", category: "Frontend Development", proficiency: 5 },
+    { name: "Next.js", category: "Frontend Development", proficiency: 5 },
+    { name: "SSG, SSR, ISR, CSR", category: "Frontend Development", proficiency: 5 },
+    { name: "Redux ", category: "Frontend Development", proficiency: 4 },
     { name: "Formik", category: "Frontend Development", proficiency: 4 },
-    { name: "TanStack Query", category: "Frontend Development", proficiency: 5 },
-    { name: "Responsive UI", category: "Frontend Development", proficiency: 5 },
-    { name: "Component Architecture", category: "Frontend Development", proficiency: 5 },
+
+    { name: "Tailwind CSS", category: "Frontend Development", proficiency: 5 },
+    { name: "Shadcn UI", category: "Frontend Development", proficiency: 5 },
+
+    { name: "Axios", category: "Frontend Development", proficiency: 5 },
+
+    { name: "Next Auth", category: "Frontend Development", proficiency: 3 },
+    { name: "Debouncing", category: "Frontend Development", proficiency: 5 },
+    { name: "Throttling", category: "Frontend Development", proficiency: 5 },
+    { name: "Bubbling and capturing", category: "Frontend Development", proficiency: 5 },
+    { name: "Headless CMS Integration", category: "Frontend Development", proficiency: 4 },
+    { name: "Image Optimization", category: "Frontend Development", proficiency: 4 },
+    { name: "Lazy Loading", category: "Frontend Development", proficiency: 5 },
+    { name: "Figma", category: "Frontend Development", proficiency: 4 },
+    { name: "Adobe Photoshop", category: "Frontend Development", proficiency: 5 },
+
+
 
     // Backend Development
+    // { name: "Node.js", category: "Backend Development", proficiency: 5 },
+    // { name: "Express.js", category: "Backend Development", proficiency: 5 },
+    // { name: "JWT Authentication", category: "Backend Development", proficiency: 5 },
+    // { name: "OAuth", category: "Backend Development", proficiency: 4 },
+    // { name: "CORS", category: "Backend Development", proficiency: 5 },
+    // { name: "Rate Limiting", category: "Backend Development", proficiency: 5 },
+    // { name: "Caching", category: "Backend Development", proficiency: 5 },
+    // { name: "Session Management", category: "Backend Development", proficiency: 5 },
+    // { name: "Web Sockets", category: "Backend Development", proficiency: 5 },
+
     { name: "Node.js", category: "Backend Development", proficiency: 5 },
     { name: "Express.js", category: "Backend Development", proficiency: 5 },
-    { name: "Fastify", category: "Backend Development", proficiency: 3 },
+
+
+    { name: "REST API Design", category: "Backend Development", proficiency: 5 },
+    { name: "GraphQL Basics", category: "Backend Development", proficiency: 3 },
+
     { name: "JWT Authentication", category: "Backend Development", proficiency: 5 },
     { name: "OAuth", category: "Backend Development", proficiency: 4 },
-    { name: "RBAC/ABAC", category: "Backend Development", proficiency: 4 },
-    { name: "Bcrypt", category: "Backend Development", proficiency: 5 },
-    { name: "Helmet", category: "Backend Development", proficiency: 5 },
+    { name: "Session Management", category: "Backend Development", proficiency: 5 },
+
     { name: "CORS", category: "Backend Development", proficiency: 5 },
     { name: "Rate Limiting", category: "Backend Development", proficiency: 5 },
+    { name: "Caching", category: "Backend Development", proficiency: 5 },
+    { name: "WebSockets", category: "Backend Development", proficiency: 5 },
+    { name: "Input Validation (Zod, Joi)", category: "Backend Development", proficiency: 4 },
+
+    { name: "Security Best Practices", category: "Backend Development", proficiency: 4 },
+    { name: "Hashing (bcrypt)", category: "Backend Development", proficiency: 5 },
+
+    { name: "File Upload (Multer / Cloud)", category: "Backend Development", proficiency: 5 },
+    { name: "Cloud Storage (Cloudinary/S3)", category: "Backend Development", proficiency: 4 },
+    { name: "Pagination", category: "Backend Development", proficiency: 5 },
+    { name: "Search & Filtering", category: "Backend Development", proficiency: 5 },
+
 
     // Databases
     { name: "MongoDB", category: "Databases", proficiency: 5 },
@@ -85,35 +139,70 @@ export const skills: Skill[] = [
     { name: "PostgreSQL", category: "Databases", proficiency: 4 },
     { name: "Firebase Realtime Database", category: "Databases", proficiency: 4 },
 
+
     // Microservices & Architecture
+    // { name: "REST API Design", category: "Microservices & Architecture", proficiency: 5 },
+    // { name: "API Versioning", category: "Microservices & Architecture", proficiency: 5 },
+    // { name: "RabbitMQ", category: "Microservices & Architecture", proficiency: 3 },
+    // { name: "Docker", category: "Microservices & Architecture", proficiency: 4 },
+    // { name: "Docker Compose", category: "Microservices & Architecture", proficiency: 4 },
+    // { name: "Redis", category: "Microservices & Architecture", proficiency: 4 },
+    // { name: "API Gateway", category: "Microservices & Architecture", proficiency: 3 },
+    // { name: "Load Balancing", category: "Microservices & Architecture", proficiency: 3 },
+    // { name: "CQRS", category: "Microservices & Architecture", proficiency: 3 },
+    // { name: "Event Sourcing", category: "Microservices & Architecture", proficiency: 3 },
+
+    // API Design & Architecture
     { name: "REST API Design", category: "Microservices & Architecture", proficiency: 5 },
     { name: "API Versioning", category: "Microservices & Architecture", proficiency: 5 },
-    { name: "RabbitMQ", category: "Microservices & Architecture", proficiency: 3 },
-    { name: "Docker", category: "Microservices & Architecture", proficiency: 4 },
-    { name: "Docker Compose", category: "Microservices & Architecture", proficiency: 4 },
-    { name: "Redis", category: "Microservices & Architecture", proficiency: 4 },
     { name: "API Gateway", category: "Microservices & Architecture", proficiency: 3 },
     { name: "Load Balancing", category: "Microservices & Architecture", proficiency: 3 },
+
+    // Messaging & Event-Driven Systems
+    { name: "RabbitMQ", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Event Sourcing", category: "Microservices & Architecture", proficiency: 3 },
     { name: "CQRS", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Pub/Sub Architecture", category: "Microservices & Architecture", proficiency: 3 },
+
+    // Containerization & Deployment
+    { name: "Docker", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "Docker Compose", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "Kubernetes (Basics)", category: "Microservices & Architecture", proficiency: 2 },
+
+    // Caching & Optimization
+    { name: "Redis", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "In-memory Caching", category: "Microservices & Architecture", proficiency: 4 },
+
+    // Service Communication & Resilience
+    { name: "gRPC (Basics)", category: "Microservices & Architecture", proficiency: 2 },
+    { name: "Circuit Breaker Pattern", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Service Discovery", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Rate Limiting", category: "Microservices & Architecture", proficiency: 4 },
+    { name: "Load Shedding", category: "Microservices & Architecture", proficiency: 2 },
+
+    // Monitoring & Logging
+    { name: "Distributed Logging", category: "Microservices & Architecture", proficiency: 3 },
+    { name: "Health Checks", category: "Microservices & Architecture", proficiency: 4 },
 
     // DevOps & Tools
-    { name: "Git", category: "DevOps & Tools", proficiency: 5 },
-    { name: "GitHub", category: "DevOps & Tools", proficiency: 5 },
+
     { name: "GitHub Actions", category: "DevOps & Tools", proficiency: 4 },
-    { name: "Postman", category: "DevOps & Tools", proficiency: 5 },
-    { name: "VS Code", category: "DevOps & Tools", proficiency: 5 },
-    { name: "Cursor", category: "DevOps & Tools", proficiency: 5 },
-    { name: "ESLint & Prettier", category: "DevOps & Tools", proficiency: 5 },
-    { name: "Chrome DevTools", category: "DevOps & Tools", proficiency: 5 },
-    { name: "Figma", category: "DevOps & Tools", proficiency: 4 },
-    { name: "Adobe Photoshop", category: "DevOps & Tools", proficiency: 4 },
-    { name: "Adobe Illustrator", category: "DevOps & Tools", proficiency: 4 },
+    { name: "Docker", category: "DevOps & Tools", proficiency: 5 },
+    { name: "Docker Compose", category: "DevOps & Tools", proficiency: 5 },
+    { name: "AWS", category: "DevOps & Tools", proficiency: 4 },
+    { name: "Netlify", category: "DevOps & Tools", proficiency: 5 },
+    { name: "Vercel", category: "DevOps & Tools", proficiency: 5 },
+
+
 
     // Soft Skills
     { name: "Communication", category: "Soft Skills", proficiency: 5 },
     { name: "Teamwork", category: "Soft Skills", proficiency: 5 },
     { name: "Fast Learning", category: "Soft Skills", proficiency: 5 },
     { name: "Adaptability", category: "Soft Skills", proficiency: 5 },
+    { name: "Problem Solving", category: "Soft Skills", proficiency: 5 },
+    { name: "Time Management", category: "Soft Skills", proficiency: 5 },
+
 ]
 
 export const experiences: Experience[] = [
