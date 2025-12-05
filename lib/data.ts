@@ -135,7 +135,7 @@ export const skills: Skill[] = [
 
     // Messaging & Event-Driven Systems
     { name: "RabbitMQ", category: "Microservices & Architecture", proficiency: 3 },
-    { name: "Kong (API Gateway)", category: "Microservices & Architecture", proficiency: 3 }, ,
+    { name: "Kong (API Gateway)", category: "Microservices & Architecture", proficiency: 3 },
 
     // Containerization & Deployment
     { name: "Docker", category: "Microservices & Architecture", proficiency: 4 },
