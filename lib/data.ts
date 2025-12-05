@@ -149,8 +149,8 @@ export const skills: Skill[] = [
     // DevOps & Tools
 
     { name: "CI/CD with GitHub Actions", category: "DevOps & Tools", proficiency: 4 },
-    { name: "Docker", category: "DevOps & Tools", proficiency: 5 },
-    { name: "Docker Compose", category: "DevOps & Tools", proficiency: 5 },
+    { name: "Docker", category: "DevOps & Tools", proficiency: 4 },
+    { name: "Docker Compose", category: "DevOps & Tools", proficiency: 4 },
     { name: "Netlify", category: "DevOps & Tools", proficiency: 5 },
     { name: "Vercel", category: "DevOps & Tools", proficiency: 5 },
 
