@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { ContactFormData } from "@/types"
+import { appendToSheet } from "@/lib/googleSheets"
 
 // Simple in-memory rate limiting (for production, use Redis or similar)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
@@ -79,11 +80,15 @@ export async function POST(request: NextRequest) {
         //   text: `Name: ${sanitizedData.name}\nEmail: ${sanitizedData.email}\n\nMessage:\n${sanitizedData.message}`,
         // })
 
-        // For now, just log the submission
-        console.log("Contact form submission:", sanitizedData)
-
-        // TODO: Optionally save to database
-        // await db.contacts.create(sanitizedData)
+        // Save to Google Sheets
+        try {
+            await appendToSheet(sanitizedData)
+            console.log("Contact form saved to Google Sheets:", sanitizedData)
+        } catch (sheetError) {
+            // Log the error but don't fail the request
+            // This ensures the user still gets a success message even if Sheets fails
+            console.error("Failed to save to Google Sheets:", sheetError)
+        }
 
         return NextResponse.json(
             {
