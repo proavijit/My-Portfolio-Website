@@ -48,7 +48,7 @@ export interface Service {
     title: string;
     description: string;
     deliveryTime: string;
-    priceRange: string;
+    priceRange?: string;
     features: string[];
     icon?: string;
 }
