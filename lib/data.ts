@@ -1,6 +1,22 @@
-import { Project, Skill, Experience, Education, Service } from "@/types"
+import { Education, Experience, Project, Service, Skill } from "@/types"
 
 export const projects: Project[] = [
+      {
+        slug: "Babyshop-ecommerce ",
+        title: "BabyShop eCommerce",
+        shortDescription: "A full-featured baby products eCommerce web application with product management, cart system, and secure checkout functionality.",
+        coverImage: "/images/projects/portfolio-gen-1.png",
+        screenshots: [
+            "/images/projects/babyshop-1.png",
+            "/images/projects/babyshop-2.png",
+            "/images/projects/babyshop-3.png"
+        ],
+        tags: ["eCommerce", "Full Stack", "Authentication"],
+        techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Firebase", "Stripe"],
+        liveUrl: "https://github.com/proavijit/BabyShop-eCommerce",
+        featured: true,
+        createdAt: "2024-02-15",
+    },
     {
         slug: "ecommerce-platform",
         title: "Full Stack Microservice E-Commerce Platform",
@@ -18,34 +34,20 @@ export const projects: Project[] = [
         outcome: "Successfully deployed for 3 clients, handling 1000+ daily transactions",
         createdAt: "2024-01-15",
     },
-    {
-        slug: "task-management-app",
-        title: "Real-Time Task Management App",
-        shortDescription: "Collaborative task management with real-time updates, team workspaces, and analytics",
+  {
+        slug: "WebCraft Pro Lead tool",
+        title: "WebCraft Pro Lead tool",
+        shortDescription: "A website revival tool / project for restoring or redesigning websites (details TBD).",
         coverImage: "/images/projects/taskapp-1.png",
-        screenshots: ["/images/projects/taskapp-1.png"],
-        tags: ["React", "Socket.io", "PostgreSQL"],
-        techStack: ["React", "Node.js", "Socket.io", "PostgreSQL", "Redis"],
-        repoUrl: "https://github.com/proavijit",
+        screenshots: ["/images/projects/website-revive-pro.png"],
+        tags: ["Web", "Revival", "Tool"],
+        techStack: ["TBD"],
+        repoUrl: "https://github.com/proavijit/website-revive-pro",
+        liveUrl: "https://webcraftpro-studio.vercel.app/",
         featured: true,
-        problem: "Teams need real-time collaboration tools for project management",
-        solution: "Developed a real-time task management system with WebSocket integration",
-        role: "Lead Developer",
-        outcome: "Used by 50+ teams, 99.9% uptime",
-        createdAt: "2023-11-20",
-    },
-    {
-        slug: "portfolio-generator",
-        title: "AI-Powered Portfolio Generator",
-        shortDescription: "Generate beautiful portfolio websites using AI and customizable templates",
-        coverImage: "/images/projects/portfolio-gen-1.png",
-        screenshots: ["/images/projects/portfolio-gen-1.png"],
-        tags: ["Next.js", "AI", "OpenAI"],
-        techStack: ["Next.js", "OpenAI API", "Tailwind CSS", "Vercel"],
-        liveUrl: "https://portfolio-gen.vercel.app",
-        featured: true,
-        createdAt: "2024-03-10",
-    },
+        createdAt: "2024-01-01",
+    }
+
 ]
 
 export const skills: Skill[] = [
@@ -201,7 +203,7 @@ export const services: Service[] = [
         title: "Full Stack Web Development",
         description: "End-to-end web application development using modern JavaScript stack",
         deliveryTime: "2-6 weeks",
-        priceRange: "$2000 - $8000",
+        // priceRange: "$2000 - $8000",
         features: [
             "Custom web application development",
             "RESTful API design and implementation",
@@ -214,7 +216,7 @@ export const services: Service[] = [
         title: "Frontend Development",
         description: "Modern, responsive, and performant user interfaces",
         deliveryTime: "1-3 weeks",
-        priceRange: "$1000 - $4000",
+        // priceRange: "$1000 - $4000",
         features: [
             "React/Next.js application development",
             "Component library creation",
@@ -227,7 +229,7 @@ export const services: Service[] = [
         title: "Backend API Development",
         description: "Scalable and secure backend services and APIs",
         deliveryTime: "1-4 weeks",
-        priceRange: "$1500 - $5000",
+        // priceRange: "$1500 - $5000",
         features: [
             "RESTful/GraphQL API development",
             "Database design and integration",
@@ -240,7 +242,7 @@ export const services: Service[] = [
         title: "Website Consultation & Optimization",
         description: "Improve existing websites for better performance and user experience",
         deliveryTime: "1-2 weeks",
-        priceRange: "$500 - $2000",
+        // priceRange: "$500 - $2000",
         features: [
             "Performance audit and optimization",
             "SEO improvements",

@@ -1,9 +1,10 @@
+import { Footer } from "@/components/Footer"
+import { Header } from "@/components/Header"
+import { ThemeProvider } from "@/components/theme-provider"
+import { WhatsAppChat } from "@/components/WhatsAppChat"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 
 
 const inter = Inter({
@@ -87,6 +88,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <WhatsAppChat />
         </ThemeProvider>
       </body>
     </html>

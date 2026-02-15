@@ -1,13 +1,12 @@
 "use client"
 
-import { Metadata } from "next"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Download, Mail, MapPin, Phone, Linkedin, Github, GraduationCap, Briefcase, Lightbulb } from "lucide-react"
-import Link from "next/link"
-import { getExperiences, getEducation } from "@/lib/data"
+import { getEducation, getExperiences } from "@/lib/data"
 import { motion } from "framer-motion"
+import { Briefcase, Download, Github, GraduationCap, Lightbulb, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import Link from "next/link"
 
 export default function ResumePage() {
     const experiences = getExperiences()
@@ -102,13 +101,25 @@ export default function ResumePage() {
 
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-3">
-                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Link href="https://docs.google.com/document/d/1M-na8wu6_OLrTO6wMLOYwKas0pxXE5LE6wNeKeiqLpE/edit?usp=sharing" download>
+                            <motion.div 
+                                whileHover={{ scale: 1.05 }} 
+                                whileTap={{ scale: 0.95 }}
+                                animate={{ 
+                                    boxShadow: ["0px 0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px 2px rgba(0, 255, 0, 0.6)", "0px 0px 0px 0px rgba(0,0,0,0)"]
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                className="rounded-md"
+                            >
+                                <a href="/AVIJIT GHOSH CV.pdf" download="AVIJIT GHOSH CV.pdf" target="_blank" rel="noopener noreferrer">
                                     <Button className="gap-2 w-full sm:w-auto cursor-pointer ">
-                                        {/* <Download className="h-4 w-4" /> */}
+                                        <Download className="h-4 w-4" />
                                         Download PDF
                                     </Button>
-                                </Link>
+                                </a>
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link href="/contact">
